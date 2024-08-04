@@ -50,7 +50,7 @@ const Todo = () => {
                             </button>
                         </li>
 
-                    })
+                    }) 
                 }
             </ul>
         </section>
