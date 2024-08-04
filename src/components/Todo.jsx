@@ -29,6 +29,16 @@ const Todo = () => {
         const forTime=now.toLocaleTimeString();
         setDateTime(`${forDate} - ${forTime}`)
     },1000)
+
+    const handleDelete=(value)=>{
+        const updatedTask=task.filter((curTask)=> curTask !== value)  
+        setTask(updatedTask)    
+    }
+
+    const handleClear=()=>
+    {
+        setTask([])
+    }
     
   return (
     <section className='todo-container'>
@@ -55,7 +65,7 @@ const Todo = () => {
                             <button className='check-btn'>
                                 <MdCheckCircle />
                             </button>
-                            <button className='check-btn'>
+                            <button className='delete-btn' onClick={()=>handleDelete(curTask)}>
                                 <MdDeleteForever />
                             </button>
                         </li>
@@ -63,6 +73,9 @@ const Todo = () => {
                     }) 
                 }
             </ul>
+        </section>
+        <section>
+            <button className='clear-btn'onClick={handleClear}> Clear All</button>
         </section>
     </section>
   )
